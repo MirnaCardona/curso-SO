@@ -1,5 +1,11 @@
 #include <curses.h>
+#include <dirent.h>
 
+struct s_dir {
+	   int tipo;
+	   char *nombre;
+   } res[128];
+  
 int leeChar() {
   int chars[5];
   int ch,i=0;
@@ -17,40 +23,71 @@ int leeChar() {
   }
   return res;
 }
-
+int LeeDirectorio(char *directorio){
+       DIR *dir = opendir(directorio);
+   struct dirent *dp;
+   int i=0;
+   while((dp=readdir(dir)) != NULL) {
+      res[i].tipo = dp->d_type;
+      res[i].nombre=dp->d_name;
+      i++;
+   }
+  closedir(dir);
+  return i; 
+}
+  
 int main()
 {
-   char *lista[] = {"Uno", "Dos", "Tres", "Cuatro" };
-   int i = 0;
-   int c;
+   //char *lista[] = {"Uno", "Dos", "Tres", "Cuatro" };
+  // int i = 0;
+   int c, i=0;
+  char cwd[256];
+  getcwd(cwd,256);
+  int max= LeeDirectorio(cwd);
+  
+
+  /*for(int j=0; j<i; j++) {
+	  if (res[j].tipo == DT_DIR) {
+		 printf("D ");
+	  }
+	  else {
+		 printf("F ");
+	  }
+      printf("%s\n",res[j].nombre);
+   }
+*/
+   //
+  
    initscr();
    raw();
    noecho(); /* No muestres el caracter leido */
    cbreak(); /* Haz que los caracteres se le pasen al usuario */
    do {
-      for (int j=0; j < 4; j++) {
+      for (int j=0; j < max; j++) {
          if (j == i) {
            attron(A_REVERSE);
          }
-         mvprintw(5+j,5,lista[j]);
+        char *direcmov= res[j].nombre;
+         mvprintw(5+j,4,direcmov);
          attroff(A_REVERSE);
       }
-      move(5+i,5);
+     
+      move(5+i,4);
       refresh();
       c = leeChar();
       switch(c) {
          case 0x1B5B41:
-            i = (i>0) ? i - 1 : 3;
+            i = (i>0) ? i - 1 : max-1;
             break;
          case 0x1B5B42:
-            i = (i<3) ? i + 1 : 0;
+            i = (i<(max-1)) ? i + 1 : 0;
             break;
          default:
             // Nothing 
             break;
       }
-      move(10,5);
-      printw("Estoy en %d: Lei %d",i,c);
+      move(2,10);
+      printw("Estoy en %d: Lei %d Num %d Dir: %s",i,c,max,cwd);
    } while (c != 'q');
    endwin();
    return 0;
