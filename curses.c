@@ -79,10 +79,10 @@ int main()
       refresh();
       c = getchar();
       switch(c) {
-         case 1792834:
+         case 65:
             i = (i>0) ? i - 1 : max-1;
             break;
-         case  1792833:
+         case  66:
             i = (i<(max-1)) ? i + 1 : 0;
             break;
          default:
