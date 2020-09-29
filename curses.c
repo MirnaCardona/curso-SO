@@ -33,7 +33,17 @@ int LeeDirectorio(char *directorio){
    while((dp=readdir(dir)) != NULL) {
       res[i].tipo = dp->d_type;
       res[i].nombre=dp->d_name;
+	   
       i++;
+   }
+	 for(int j=0; j<i; j++) {
+	  if (res[j].tipo == DT_DIR) {
+		 printf("D ");
+	  }
+	  else {
+		 printf("F ");
+	  }
+      printf("%s\n",res[j].nombre);
    }
   closedir(dir);
   return i; 
