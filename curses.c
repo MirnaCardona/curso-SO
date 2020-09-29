@@ -34,7 +34,7 @@ int main()
   int max= LeeDirectorio(cwd);
   
 	
-	
+/*	
   for(int j=0; j<10; j++) {
 	  if (res[j].tipo == DT_DIR) {
 		 printf("D ");
@@ -43,7 +43,7 @@ int main()
 		 printf("F ");
 	  }
       printf("%s%d\n",res[j].nombre,j);
-   }
+   }*/
 	
    initscr();
    raw();
