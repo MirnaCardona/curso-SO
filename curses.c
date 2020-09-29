@@ -81,7 +81,7 @@ int main()
            attron(A_REVERSE);
          }
         char *direcmov= res[j].nombre;
-         mvprintw(5+j,4,direcmov);
+         printw(5+j,4,direcmov);
          attroff(A_REVERSE);
       }
      
