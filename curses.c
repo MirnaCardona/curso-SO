@@ -42,7 +42,7 @@ int main()
 	  else {
 		 printf("F ");
 	  }
-     / printf("%s%d\n",res[j].nombre,j);
+     printf("%s%d\n",res[j].nombre,j);
    }
 	
    initscr();
