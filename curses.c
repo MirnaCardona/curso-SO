@@ -55,8 +55,8 @@ int main()
          case  66:
             i = (i<(max-1)) ? i + 1 : 0;
             break;
-	  case 10:
-		if(res[i].tipo == DT_DIR)
+	  case 13:
+		/*if(res[i].tipo == DT_DIR)
 		{
 			strncat(cwd,"/",256);
 			strncat(cwd,res[i].nombre,256);
@@ -64,7 +64,7 @@ int main()
 			i=0;
 			clear();
 		}
-		      else
+		      else*/
 			    break;  
 			      
 		      
