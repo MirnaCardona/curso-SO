@@ -67,7 +67,7 @@ int main()
          case  66:
             i = (i<(max-1)) ? i + 1 : 0;
             break;
-	  /*case 13:
+	  case 13:
 		if(res[i].tipo == DT_DIR)
 		{
 			strncat(cwd,"/",256);
@@ -78,7 +78,7 @@ int main()
 		}
 		      else
 			    break;  
-			  */    
+			    
 		      
          default:
             // Nothing 
