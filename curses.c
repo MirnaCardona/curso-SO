@@ -26,7 +26,7 @@ struct s_dir {
   }
   return res;
 }*/
-int LeeDirectorio(char *directorio, DIR **dir){
+int LeeDirectorio(char *directorio){
        DIR *dir = opendir(directorio);
    struct dirent *dp;
    int i=0;
@@ -36,7 +36,7 @@ int LeeDirectorio(char *directorio, DIR **dir){
 	   
       i++;
    }
-	 for(int j=0; j<i; j++) {
+	/* for(int j=0; j<i; j++) {
 	  if (res[j].tipo == DT_DIR) {
 		 printf("D ");
 	  }
@@ -44,7 +44,7 @@ int LeeDirectorio(char *directorio, DIR **dir){
 		 printf("F ");
 	  }
       printf("%s\n",res[j].nombre);
-   }
+   }*/
   closedir(dir);
   return i; 
 }
@@ -56,10 +56,10 @@ int main()
    int c, i=0;
   char cwd[256];
   getcwd(cwd,256);
-  int max= LeeDirectorio(cwd, dir);
+  int max= LeeDirectorio(cwd);
   
 
-  /*for(int j=0; j<i; j++) {
+  for(int j=0; j<i; j++) {
 	  if (res[j].tipo == DT_DIR) {
 		 printf("D ");
 	  }
@@ -68,7 +68,7 @@ int main()
 	  }
       printf("%s\n",res[j].nombre);
    }
-*/
+
    //
   
    initscr();
