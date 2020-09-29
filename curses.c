@@ -26,7 +26,7 @@ struct s_dir {
   }
   return res;
 }*/
-int LeeDirectorio(char *directorio){
+int LeeDirectorio(char *directorio, DIR **dir){
        DIR *dir = opendir(directorio);
    struct dirent *dp;
    int i=0;
@@ -56,7 +56,7 @@ int main()
    int c, i=0;
   char cwd[256];
   getcwd(cwd,256);
-  int max= LeeDirectorio(cwd);
+  int max= LeeDirectorio(cwd, dir);
   
 
   /*for(int j=0; j<i; j++) {
