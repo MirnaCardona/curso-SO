@@ -66,7 +66,7 @@ int main()
 	  else {
 		 printf("F ");
 	  }
-      printf("%s\n",res[j].nombre);
+      printf("%s%d\n",res[j].nombre,j);
    }
 
    //
