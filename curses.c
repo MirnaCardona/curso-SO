@@ -66,6 +66,19 @@ int main()
          case  66:
             i = (i<(max-1)) ? i + 1 : 0;
             break;
+	  case 10:
+		if(res[j].tipo == DT_DIR)
+		{
+			strcat(cwd,"/",256);
+			strcat(cwd,res[j].nombre,256);
+			max= LeeDirectorio(cwd);
+			i=0;
+			clear();
+		}
+		      else
+			    break;  
+			      
+		      
          default:
             // Nothing 
             break;
