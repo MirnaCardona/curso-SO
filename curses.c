@@ -1,28 +1,31 @@
 #include <curses.h>
 #include <dirent.h>
+#include <unistd.h>
+#include <string.h>
+
 
 struct s_dir {
 	   int tipo;
 	   char *nombre;
    } res[128];
   
-int leeChar() {
+/*int leeChar() {
   int chars[5];
   int ch,i=0;
   nodelay(stdscr, TRUE);
-  while((ch = getch()) == ERR); /* Espera activa */
+  while((ch = getch()) == ERR); /* Espera activa 
   ungetch(ch);
   while((ch = getch()) != ERR) {
     chars[i++]=ch;
   }
-  /* convierte a numero con todo lo leido */
+  /* convierte a numero con todo lo leido 
   int res=0;
   for(int j=0;j<i;j++) {
     res <<=8;
     res |= chars[j];
   }
   return res;
-}
+}*/
 int LeeDirectorio(char *directorio){
        DIR *dir = opendir(directorio);
    struct dirent *dp;
@@ -61,7 +64,7 @@ int main()
    initscr();
    raw();
    noecho(); /* No muestres el caracter leido */
-   cbreak(); /* Haz que los caracteres se le pasen al usuario */
+   //cbreak(); /* Haz que los caracteres se le pasen al usuario */
    do {
       for (int j=0; j < max; j++) {
          if (j == i) {
@@ -74,12 +77,12 @@ int main()
      
       move(5+i,4);
       refresh();
-      c = leeChar();
+      c = getchar();
       switch(c) {
-         case 0x1B5B41:
+         case 1792834:
             i = (i>0) ? i - 1 : max-1;
             break;
-         case 0x1B5B42:
+         case  1792833:
             i = (i<(max-1)) ? i + 1 : 0;
             break;
          default:
