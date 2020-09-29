@@ -33,6 +33,18 @@ int main()
   getcwd(cwd,256);
   int max= LeeDirectorio(cwd);
   
+	
+	
+  for(int j=0; j<10; j++) {
+	  if (res[j].tipo == DT_DIR) {
+		 printf("D ");
+	  }
+	  else {
+		 printf("F ");
+	  }
+      printf("%s%d\n",res[j].nombre,j);
+   }
+	
    initscr();
    raw();
    noecho(); /* No muestres el caracter leido */
@@ -55,8 +67,8 @@ int main()
          case  66:
             i = (i<(max-1)) ? i + 1 : 0;
             break;
-	  case 13:
-		/*if(res[i].tipo == DT_DIR)
+	  /*case 13:
+		if(res[i].tipo == DT_DIR)
 		{
 			strncat(cwd,"/",256);
 			strncat(cwd,res[i].nombre,256);
@@ -64,9 +76,9 @@ int main()
 			i=0;
 			clear();
 		}
-		      else*/
+		      else
 			    break;  
-			      
+			  */    
 		      
          default:
             // Nothing 
