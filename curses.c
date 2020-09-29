@@ -9,23 +9,7 @@ struct s_dir {
 	   char *nombre;
    } res[128];
   
-/*int leeChar() {
-  int chars[5];
-  int ch,i=0;
-  nodelay(stdscr, TRUE);
-  while((ch = getch()) == ERR); /* Espera activa 
-  ungetch(ch);
-  while((ch = getch()) != ERR) {
-    chars[i++]=ch;
-  }
-  /* convierte a numero con todo lo leido 
-  int res=0;
-  for(int j=0;j<i;j++) {
-    res <<=8;
-    res |= chars[j];
-  }
-  return res;
-}*/
+
 int LeeDirectorio(char *directorio){
        DIR *dir = opendir(directorio);
    struct dirent *dp;
@@ -36,23 +20,14 @@ int LeeDirectorio(char *directorio){
 	   
       i++;
    }
-	/* for(int j=0; j<i; j++) {
-	  if (res[j].tipo == DT_DIR) {
-		 printf("D ");
-	  }
-	  else {
-		 printf("F ");
-	  }
-      printf("%s\n",res[j].nombre);
-   }*/
+	
   closedir(dir);
   return i; 
 }
   
 int main()
 {
-   //char *lista[] = {"Uno", "Dos", "Tres", "Cuatro" };
-  // int i = 0;
+   
    int c, i=0;
   char cwd[256];
   getcwd(cwd,256);
@@ -68,19 +43,15 @@ int main()
 	  }
       printf("%s%d\n",res[j].nombre,j);
    }
-
-   //
   
    initscr();
    raw();
    noecho(); /* No muestres el caracter leido */
-   //cbreak(); /* Haz que los caracteres se le pasen al usuario */
    do {
       for (int j=0; j < max; j++) {
          if (j == i) {
            attron(A_REVERSE);
          }
-        //char *direcmov= res[j].nombre;
          mvprintw(5+j,5,res[j].nombre);
          attroff(A_REVERSE);
       }
