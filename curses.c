@@ -59,7 +59,7 @@ int main()
   int max= LeeDirectorio(cwd);
   
 
-  for(int j=0; j<i; j++) {
+  for(int j=0; j<10; j++) {
 	  if (res[j].tipo == DT_DIR) {
 		 printf("D ");
 	  }
@@ -80,7 +80,7 @@ int main()
          if (j == i) {
            attron(A_REVERSE);
          }
-        char *direcmov= res[j].nombre;
+        //char *direcmov= res[j].nombre;
          mvprintw(5+j,5,res[j].nombre);
          attroff(A_REVERSE);
       }
