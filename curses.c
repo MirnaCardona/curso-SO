@@ -70,7 +70,7 @@ int main()
 	  case 13:
 		if(res[i].tipo == DT_DIR)
 		{
-			if(strcmp(res[i].nombre,'.')==0)
+			if(strcmp(res[i].nombre,".")==0)
 			{
 			}
 			else{
