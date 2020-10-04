@@ -16,9 +16,6 @@ struct s_dir {
    } res[128];
   
 
-
-
-
 /* Variable global para mejor legibilidad */
 int fd; // Archivo a leer
 
@@ -162,6 +159,7 @@ int main()
 			}
 		}
 		      else
+		      {
 			       char *map = mapFile( res[i].nombre);
     				if (map == NULL) {
 				      exit(EXIT_FAILURE);
@@ -183,6 +181,7 @@ int main()
 				    close(fd);
 
 				   return 0;
+		      }
 							    break;  
 
 
