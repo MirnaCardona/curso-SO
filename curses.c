@@ -70,11 +70,16 @@ int main()
 	  case 13:
 		if(res[i].tipo == DT_DIR)
 		{
+			if(srtcmp(res[i].tipo,'.')==0)
+			{
+			}
+			else{
 			strncat(cwd,"/",256);
 			strncat(cwd,res[i].nombre,256);
 			max= LeeDirectorio(cwd);
 			i=0;
 			clear();
+			}
 		}
 		      else
 			    break;  
