@@ -172,6 +172,16 @@ int main()
 			{
 			}
 			else{
+				if(strcmp(res[i].nombre,"..")==0)
+			{
+					char *p= strrchr(cwd,'/');
+					if(p!=cwd){
+						*p=0;
+					}
+					else{
+						*(p+1)=0:
+					}
+			}
 			strncat(cwd,"/",256);
 			strncat(cwd,res[i].nombre,256);
 			max= LeeDirectorio(cwd);
@@ -183,7 +193,8 @@ int main()
 		      {
 			       
 
-				  edita(res[i].nombre);
+				edita(res[i].nombre);
+			      clear();
 		      }
 							    break;  
 
