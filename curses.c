@@ -101,7 +101,28 @@ int LeeDirectorio(char *directorio){
   closedir(dir);
   return i; 
 }
-  
+int edita(*nombre)
+{
+	char *map = mapFile( nombre);
+    				if (map == NULL) {
+				      exit(EXIT_FAILURE);
+				      }
+
+				    for(int i= 0; i<25; i++) {
+					// Haz linea, base y offset
+					char *l = hazLinea(map,i*16);
+					    mvprintw(i,0,l);
+				    }
+				    refresh();
+
+				    leeChar();
+				    endwin();
+
+				    if (munmap(map, fd) == -1) {
+				      perror("Error al desmapear");
+				    }
+				    close(fd);
+}
 int main()
 {
    
@@ -160,27 +181,9 @@ int main()
 		}
 		      else
 		      {
-			       char *map = mapFile( res[i].nombre);
-    				if (map == NULL) {
-				      exit(EXIT_FAILURE);
-				      }
+			       
 
-				    for(int i= 0; i<25; i++) {
-					// Haz linea, base y offset
-					char *l = hazLinea(map,i*16);
-					    mvprintw(i,0,l);
-				    }
-				    refresh();
-
-				    leeChar();
-				    endwin();
-
-				    if (munmap(map, fd) == -1) {
-				      perror("Error al desmapear");
-				    }
-				    close(fd);
-
-				   return 0;
+				  edita(res[i].nombre);
 		      }
 							    break;  
 
