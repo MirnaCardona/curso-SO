@@ -176,13 +176,13 @@ int main()
 					char *p= strrchr(cwd,'/..');
 					if(p!=cwd){
 						
-					}
+					}else{
 					
 			
 			strncat(cwd,"/",256);
 			strncat(cwd,res[i].nombre,256);
 			max= LeeDirectorio(cwd);
-			i=0;
+			i=0;}
 			clear();
 				
 			}
