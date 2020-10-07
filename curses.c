@@ -101,7 +101,7 @@ int LeeDirectorio(char *directorio){
   closedir(dir);
   return i; 
 }
-int edita(*nombre)
+int edita(char *nombre)
 {
 	char *map = mapFile( nombre);
     				if (map == NULL) {
