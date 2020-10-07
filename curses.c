@@ -181,12 +181,13 @@ int main()
 					else{
 						*(p+1)=0;
 					}
-			}
+			}else{
 			strncat(cwd,"/",256);
 			strncat(cwd,res[i].nombre,256);
 			max= LeeDirectorio(cwd);
 			i=0;
 			clear();
+				}
 			}
 		}
 		      else
