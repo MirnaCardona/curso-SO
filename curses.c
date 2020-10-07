@@ -173,7 +173,7 @@ int main()
 			}
 			else{
 
-					char *p= strrchr(cwd,'/..');
+					char *p= strrchr(cwd,'/../..');
 					if(p!=cwd){
 						
 					}else{
