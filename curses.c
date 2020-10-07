@@ -172,22 +172,19 @@ int main()
 			{
 			}
 			else{
-				if(strcmp(res[i].nombre,"..")==0)
-			{
-					char *p= strrchr(cwd,'/');
+
+					char *p= strrchr(cwd,'/..');
 					if(p!=cwd){
-						*p=0;
+						
 					}
-					else{
-						*(p+1)=0;
-					}
-			}else{
+					
+			
 			strncat(cwd,"/",256);
 			strncat(cwd,res[i].nombre,256);
 			max= LeeDirectorio(cwd);
 			i=0;
 			clear();
-				}
+				
 			}
 		}
 		      else
